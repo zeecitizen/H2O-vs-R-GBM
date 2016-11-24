@@ -109,4 +109,4 @@ print(imp_matrix)
 
 # Feature importance bar plot by gain
 print("Feature importance Plot : ")
-print(xgb.plot.importance(importance_matrix = imp_matrix))
+#print(xgb.plot.importance(importance_matrix = imp_matrix))
