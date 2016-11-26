@@ -1,12 +1,12 @@
 
-library(readr)
+
 library(ROCR)
 library(gbm)
 
 set.seed(123)
 
-d_train <- read_csv("train-1m.csv")
-d_test <- read_csv("test.csv")
+d_train <- read.csv("train-1m.csv")
+d_test <- read.csv("test.csv")
 
 d_train$dep_delayed_15min <- ifelse(d_train$dep_delayed_15min=="Y",1,0)
 d_test$dep_delayed_15min <- ifelse(d_test$dep_delayed_15min=="Y",1,0)
