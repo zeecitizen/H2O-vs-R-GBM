@@ -3,18 +3,18 @@ library(h2o)
 
 h2oServer <- h2o.init(max_mem_size="60g", nthreads=-1)
 
-dx_train <- h2o.importFile(h2oServer, path = "train-10m.csv")
-dx_test <- h2o.importFile(h2oServer, path = "test.csv")
+dx_train <- h2o.importFile(path = "train-10m.csv")
+dx_test <- h2o.importFile(path = "test.csv")
 
 
 Xnames <- names(dx_train)[which(names(dx_train)!="dep_delayed_15min")]
 
 
 system.time({
-  md <- h2o.gbm(x = Xnames, y = "dep_delayed_15min", data = dx_train, distribution = "bernoulli", 
-          n.trees = 1000, 
-          interaction.depth = 16, shrinkage = 0.01, n.minobsinnode = 1,
-          n.bins = 100)
+  md <- h2o.gbm(x = Xnames, y = "dep_delayed_15min", training_frame = dx_train, distribution = "bernoulli", 
+                ntrees = 1000, 
+                max_depth = 16, learn_rate = 0.01, min_rows = 1,
+                nbins = 100)
 })
 
 
