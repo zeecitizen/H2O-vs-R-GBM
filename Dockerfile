@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Melissa Gymrek <mgymrek@mit.edu>
+MAINTAINER Mohammad Zeeshan <zeeshan@mit.edu>
 RUN apt-get -qqy update
 
 # add webupd8 repository
